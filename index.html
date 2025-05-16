@@ -4,6 +4,7 @@
     <script>
       const url = new URL(location).searchParams.get("url");
       fetch(url)
+        .then(r => r.text())
         .then((data) => parent.postMessage({ ok: true, data }, "*"))
         .catch((err) => parent.postMessage({ ok: false, error: err.message }, "*"));
     </script>
