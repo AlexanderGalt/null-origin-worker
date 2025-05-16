@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      const url = new URL(location).searchParams.get("url");
+      fetch(url)
+        .then((data) => parent.postMessage({ ok: true, data }, "*"))
+        .catch((err) => parent.postMessage({ ok: false, error: err.message }, "*"));
+    </script>
+  </body>
+</html>
